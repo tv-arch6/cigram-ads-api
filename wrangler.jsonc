@@ -1,0 +1,36 @@
+{
+  "name": "cigram-ads-api",
+  "main": "worker.js",
+  "compatibility_date": "2026-10-06",
+
+  "r2_buckets": [
+    {
+      "binding": "ADS_BUCKET",
+      "bucket_name": "cigram-ads"
+    }
+  ],
+
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "ADS_CORE",
+        "class_name": "AdsCore"
+      },
+      {
+        "name": "CHAT_HUB",
+        "class_name": "ChatHub"
+      }
+    ]
+  },
+
+  "exports": {
+    "AdsCore": {
+      "type": "durable-object",
+      "storage": "sqlite"
+    },
+    "ChatHub": {
+      "type": "durable-object",
+      "storage": "sqlite"
+    }
+  }
+}
